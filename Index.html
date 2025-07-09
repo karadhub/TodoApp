@@ -9,10 +9,10 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      flex-direction: column;
       background-color: #f0f0f0;
     }
     .todo-container {
@@ -21,6 +21,14 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       width: 300px;
+      margin: 0; /* Remove margin to allow centering */
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center vertically */
     }
     h1 {
       text-align: center;
@@ -51,14 +59,38 @@
     .delete:hover {
       text-decoration: underline;
     }
+    footer {
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+      padding: 10px 0;
+      background: none;
+      font-size: 0.95em;
+      color: #888;
+      border-top: 1px solid #e0e0e0;
+    }
+    .copyright-name {
+      color: #222;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-  <div class="todo-container">
-    <h1>To-Do List</h1>
-    <input type="text" id="taskInput" placeholder="Add a new task...">
-    <ul id="taskList"></ul>
-  </div>
+  <main>
+    <div class="todo-container">
+      <h1>To-Do List</h1>
+      <input type="text" id="taskInput" placeholder="Add a new task...">
+      <ul id="taskList"></ul>
+    </div>
+  </main>
+  <footer>
+    <div class="copyright">
+      <p>
+        &copy; <script>document.write(new Date().getFullYear());</script>
+        <span class="copyright-name">Vaibhav Karad</span>. All rights reserved.
+      </p>
+    </div>
+  </footer>
   <script>
     const taskInput = document.getElementById('taskInput');
     const taskList = document.getElementById('taskList');
